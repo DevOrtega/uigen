@@ -4,17 +4,17 @@ import { ChangeEvent, FormEvent, KeyboardEvent } from "react";
 import { Send } from "lucide-react";
 
 interface MessageInputProps {
-  input: string;
-  handleInputChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
-  handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
-  isLoading: boolean;
+  input?: string;
+  handleInputChange?: (e: ChangeEvent<HTMLTextAreaElement>) => void;
+  handleSubmit?: (e: FormEvent<HTMLFormElement>) => void;
+  isLoading?: boolean;
 }
 
 export function MessageInput({
-  input,
-  handleInputChange,
-  handleSubmit,
-  isLoading,
+  input = "",
+  handleInputChange = () => {},
+  handleSubmit = () => {},
+  isLoading = false,
 }: MessageInputProps) {
   const handleKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
